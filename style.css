@@ -1,0 +1,281 @@
+/* === CONFIGURACIÓN GLOBAL Y TIPOGRAFÍA === */
+:root {
+    --font-title: 'Dancing Script', cursive;
+    --font-body: 'Montserrat', sans-serif;
+    --color-primary: #f8c5d8; /* Rosa pastel */
+    --color-secondary: #d9b8f1; /* Lavanda */
+    --color-text: #4b425a; /* Morado oscuro */
+    --color-light: #fffafc;
+    --color-dark: #1e1a26;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+    z-index: 10;
+}
+
+.initial-hidden {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* === ESTILOS DE PÁGINAS ESPECÍFICAS === */
+.page-login { background: linear-gradient(135deg, #fce3ec, #f8d5e5); }
+.page-bts { background: linear-gradient(135deg, #a18cd1, #fbc2eb); }
+.page-letters { background: linear-gradient(135deg, #fff1eb, #ace0f9); }
+.page-finale { background-color: var(--color-dark); }
+
+/* === COMPONENTES === */
+.title {
+    font-family: var(--font-title);
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+.btn-primary {
+    font-family: var(--font-body);
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    border: 2px solid var(--color-secondary);
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* --- Página de Login --- */
+.login-box {
+    background: var(--color-light);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-family: var(--font-body);
+}
+
+/* --- Página de BTS --- */
+.page-bts .title { color: var(--color-light); }
+.page-bts .subtitle { color: var(--color-light); }
+.page-bts .btn-primary { background-color: #fbc2eb; border-color: #a18cd1; }
+
+/* --- Página de Cartas --- */
+.letter-carousel {
+    background: var(--color-light);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 90vw;
+    max-width: 600px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.letter-content p {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    line-height: 1.6;
+    min-height: 150px;
+}
+/* --- PANTALLA DE BIENVENIDA --- */
+#welcomeOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #fce3ec, #f8d5e5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    color: var(--color-text);
+    transition: opacity 1s ease;
+}
+
+.welcome-content h2 {
+    font-family: var(--font-title);
+    font-size: 3rem;
+}
+
+.welcome-content p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.heart-icon {
+    margin: 2rem auto 0;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-primary);
+    position: relative;
+    transform: rotate(-45deg);
+    animation: pulse 1.5s infinite;
+}
+
+.heart-icon::before,
+.heart-icon::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+}
+
+.heart-icon::before { top: -20px; left: 0; }
+.heart-icon::after { left: 20px; top: 0; }
+
+@keyframes pulse {
+    0% { transform: rotate(-45deg) scale(1); }
+    50% { transform: rotate(-45deg) scale(1.1); }
+    100% { transform: rotate(-45deg) scale(1); }
+}
+
+.letter-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.btn-nav {
+    background: none;
+    border: 2px solid var(--color-secondary);
+    color: var(--color-secondary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-nav:hover { background-color: var(--color-secondary); color: white; }
+
+/* --- Página Final --- */
+.page-finale .title {
+    color: var(--color-light);
+    font-size: 4rem;
+}
+
+/* === ANIMACIONES DE FONDO === */
+.background-animation div {
+    position: absolute;
+    bottom: -150px;
+    opacity: 0;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-120vh); opacity: 0; }
+}
+
+.heart {
+    width: 20px; height: 20px;
+    background-color: var(--color-primary);
+    animation: float 15s linear infinite;
+}
+.heart::before, .heart::after {
+    content: ''; position: absolute; width: 20px; height: 20px;
+    background-color: var(--color-primary); border-radius: 50%;
+}
+.heart::before { top: -10px; left: 0; }
+.heart::after { top: 0; left: -10px; }
+
+.heart:nth-child(1) { left: 10%; animation-delay: 0s; transform: scale(0.6); }
+.heart:nth-child(2) { left: 20%; animation-delay: 2s; transform: scale(1); }
+.heart:nth-child(3) { left: 35%; animation-delay: 5s; transform: scale(0.8); }
+.heart:nth-child(4) { left: 55%; animation-delay: 1s; transform: scale(0.5); }
+.heart:nth-child(5) { left: 75%; animation-delay: 3s; transform: scale(0.9); }
+.heart:nth-child(6) { left: 90%; animation-delay: 6s; transform: scale(0.7); }
+
+.sparkle {
+    width: 5px; height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px white;
+    animation: float 20s linear infinite;
+}
+.sparkle:nth-child(1) { left: 15%; animation-delay: 0s; }
+.sparkle:nth-child(2) { left: 25%; animation-delay: 5s; }
+.sparkle:nth-child(3) { left: 45%; animation-delay: 2s; }
+.sparkle:nth-child(4) { left: 65%; animation-delay: 8s; }
+.sparkle:nth-child(5) { left: 80%; animation-delay: 4s; }
+.sparkle:nth-child(6) { left: 95%; animation-delay: 1s; }
+
+.starry-sky {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    overflow: hidden;
+}
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+}
+@keyframes twinkle {
+    from { opacity: 0.5; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1.2); }
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 600px) {
+    .title { font-size: 2.5rem; }
+    .subtitle { font-size: 1rem; }
+    .letter-carousel { padding: 1.5rem; }
+    .letter-content p { font-size: 1.5rem; }
+    .page-finale .title { font-size: 2.8rem; }
+}
+
